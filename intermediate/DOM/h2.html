@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            color:green;
+            background-color: rgb(242, 157, 219);
+        }
+    </style>
+</head>
+<body>
+    <h1>1. hello ji to kaise he app log</h1>
+    <h1> 2.dsjkjvkf</h1>
+    <h1 id="one">3.heloo everyone</h1>
+    <h1>4.Lorem ipsum dolor sit.</h1>
+    <h2>new tag</h2>
+
+    <ul>
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Grapes</li>
+    </ul>
+    <p>some thing about dom manipulation</p>
+
+
+    <script>
+
+        let h2 = document.querySelector("h1")
+        h2.classList.add("main");
+        
+
+
+        // let h1 = document.createElement("h1");
+        // h1.textContent= "5.hello ji from appned child";
+        // document.body.append(h1);
+
+
+        // let one = document.createElement("p");
+        // one.innerText = "this is from prepend";
+        // document.querySelector("#one").prepend(one);
+        // one.style.color="green";
+        // h2.classList.remove("main");
+        // how to add and remove class on the html element
+
+        
+        let lis  = document.querySelectorAll("li");
+        lis.forEach(function(val){
+            console.log(val.textContent);
+        });
+
+        let p = document.querySelector("p");
+        p.innerHTML = "<b> Updated</b> by javascripts"
+        
+      
+    </script>
+</body>
+</html>

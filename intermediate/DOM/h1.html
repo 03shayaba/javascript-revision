@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="abcd">dskfkjkv</h1>
+    <h1 id="new">helloo</h1>
+
+    <a href="#"> Attribute setting by dom manipulation</a>
+    <script >
+let abcd = document.getElementById("new");
+console.dir(abcd);
+let h1 = document.querySelector("h1");
+console.dir(h1);
+h1.textContent = "new  content"
+h1.innerHTML = "<i>New italic content </i>"
+h1.innerText = "new  content "
+h1.hidden=true;  //it will hide the text
+
+
+// get attribute setattribute and removeattribute
+const a = document.querySelector("a");
+console.log(a.getAttribute("href"))         //it get the value of href from anchor tag and print it
+a.setAttribute("href" ,"https://www.google.com")        // it wiil set the value of anchor tag  # to the google link
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = [1, 2, 3, 4, 5, 6, 7]
+        document.write(arr+" <br>");
+        
+        arr[0] = 2;
+        arr[1] = 3;
+        arr[2] = 4;
+        arr.push(13);
+        arr.shift(9);
+        document.write(arr+" <br>");
+        //   const arr1 = new Array(1, 2, 3);
+
+
+        // document.write(arr1 +"  <br>");
+         const b = arr;
+         b.push(0);
+         document.write(arr +"<br>");
+
+        // slice method
+
+        let result1 = arr.slice(2,6);
+        document.write(result1 +" <br>");
+        // syntax of splice
+        // array.splice(start, deleteCount, item1, item2, ..., itemN)           delete count is count how much elemnt you e=want to be deleted
+
+
+        // splice can be used to add the  insert the values also
+        const animals = ["Lion", "Cheetah", "Tiger", "Elephant", "Dinosaur"];
+        document.write(animals +"<br>")
+        animals.splice(2, 1);
+       
+        document.write(animals + "<br>");
+        animals.splice(1,0,"deer","goat");
+        document.write(animals);
+
+        // reduce
+
+        const nestedArray = [[1, 2], [3, 4], [5, 6]];
+      const flattenedArray = nestedArray.reduce((accumulator, currentValue) => accumulator.concat(currentValue), []);
+      document.write(flattenedArray);
+    //   reduce
+     const numbers = [10, 20, 30, 40, 50,60,42,43,54,34];
+      const sum = numbers.reduce((accumulator, currentValue) => accumulator - currentValue, 0);
+      document.write(sum);
+
+
+    </script>
+</body>
+
+</html>

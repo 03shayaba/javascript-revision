@@ -1,0 +1,72 @@
+var -> hoist  value = undefined
+let ->hoist valuw=nothing
+const ->hoist value=nothing
+"5" +1 = '51'(string)
+"5" -1 = 4(number) right
+
+
+truthy  vs falsy values 
+// 0 false "" null undefined NaN document.all => falsy
+rest all => true
+
+
+true + flase =?
+o/p -> 1
+
+null+1 => 1
+!!undefined = flase
+
+
+NaN is a failed number mathematical operation
+typeof NaN === 'number
+
+
+
+undefined vs null
+let x;
+console.log(x);    //undefined     ---that takes by default
+let y = null;
+console.log(y);      //null         ---the value didnot gives  (manuly assign)
+
+
+
+//operators 
+ arithmatic , comparision , logical, assingnment , unary , ternary
+
+ = - * / % **  //** => expontiation
+ = == ===
+ < > <= >= ! != !== !!
+ && ||
+ ?:
+
+
+ 12 == "12" => true   because it didnot cheks the type of values | not strict comparesion
+ 12 === "12"  => false  | strict comparesion
+
+ 
+
+ !!"" =>(false)
+ !!"helo" => TRUE
+
+
+
+ ?cplosure fun -> ek fun jo ki return kare ek or function or return hone wala function hamesha use karega parents function ka koi variable
+
+ function abcd(){
+    let a=2
+    return function(){
+        console.log(a);
+    }
+ }
+
+
+ // hoisting is not working in fat arrow function
+
+//array
+push pop add and delete last index of element
+unshift and shift are also add and remove ths first index element
+splice(2,1) it delet element from 2 index 1 element
+slice it return the array of array elemnts
+
+
+ sort always take a function inside the sortmethod

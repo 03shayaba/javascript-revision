@@ -1,0 +1,28 @@
+<div class="container">Click me 1</div>
+<div class="container">Click me 2</div>
+<div class="container">Click me 3</div>
+
+<style>
+  .container {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    background: lightgray;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  const containers = document.querySelectorAll(".container");
+
+  containers.forEach((box) => {
+    box.addEventListener("click", () => {
+      // random color generate
+      const randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+      box.style.backgroundColor = randomColor;
+    });
+  });
+</script>
