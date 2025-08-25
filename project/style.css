@@ -465,8 +465,8 @@
     font-family: Georgia, serif;
     font-size: 1.4rem;
     font-weight: lighter;
-    padding-left: 130px;
-    padding-right: 130px;
+    padding-left: 260px;
+    padding-right: 260px;padding-bottom:50px;
 }
 
 .performance-main h1{
@@ -485,11 +485,13 @@
 }
 
 .sidebar1{
-    padding-left:90px;
+    padding-left:150px;
+    padding-top:30px;
 }
 .sidebar2{
     display: flex;
     flex-direction: column;
+    padding-left:50px;
 }
 .go-drive{
     display: flex; 
@@ -504,6 +506,28 @@
     display: flex;
 }
 
+
+.pr-tick{
+   display: flex; 
+   flex-direction: column;
+   margin-left:30px;
+}
+
+.go-tick{
+    display: flex;
+       flex-direction: column;
+       margin-left:30px;
+}
+.one-tick{
+    display: flex;
+       flex-direction: column;
+       margin-left:30px;
+}
+.drop-tick{
+    display:flex;
+       flex-direction: column;
+       margin-left:30px;
+}
 
 /* media query */
 

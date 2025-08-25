@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .placeholder{
+            width:100px;
+        }
+        .highlight{
+            color:red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="Faizan" title="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia commodi sapiente
+        perspiciatis libero ad, odit sint
+        dolorum voluptate, possimus aut corrupti quis ullam, neque unde laborum et pariatur id. Voluptatibus amet
+        eligendi et ullam rem accusamus odit veritatis tempora inventore. Beatae non ipsam quisquam pariatur!</h1>
+
+    <!-- remove the dissabled attribute from a button -->
+
+    <button disabled>Download now</button>
+
+    <!-- what does createElement do -->
+
+    <!-- can you remove an element using removChild()?  -->
+
+    <div id="parent">
+        <p id="child">This is a paragraph</p>
+    </div>
+
+    <button onclick="removePara()">Remove Paragraph</button>
+
+
+    <!-- Ceate a new list item <li> New Task </li> and add it to the end of a <ul> -->
+    <ul>
+        <li>apple</li>
+        <li>papaye</li>
+        <li>Banana</li>
+    </ul>
+
+
+    <!-- create a  new im element with a placeholder source and add it at the top of a div -->
+
+
+
+
+    <!-- add a highlight class to every even item in a list -->
+
+
+
+
+    <!-- toggle a class active on a button when clicked  -->
+
+    <script>
+        let Faizan = document.querySelector(".Faizan");
+        Faizan.setAttribute("title", " Faizan is the GOAT");
+
+
+        /* remove the dissabled attribute from a button */
+        let btn = document.querySelector("button");
+        btn.removeAttribute("disabled");
+
+        // create element it will return html node
+        let h1 = document.createElement("h1");
+        console.log(h1);
+
+        // can you remove an element using removChild()? 
+        function removePara() {
+            const parent = document.getElementById("parent");   // parent element
+            const child = document.getElementById("child");     // child element
+            parent.removeChild(child);                          // remove child from parent
+        }
+
+        // Ceate a new list item <li> New Task </li> and add it to the end of a <ul>
+        let list = document.querySelector("ul")
+        let li = document.createElement("li")
+        li.textContent = "new Task"
+        list.appendChild(li);
+
+        // create a  new im element with a placeholder source and add it at the top of a div
+
+        let img = document.createElement("img");
+        img.setAttribute("src", "https://imgs.search.brave.com/zBO9neQqELcjd_WaBw792GpvyDbjf3RKDjkw9m_Bw_o/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvOTU4/NTIzMTcwL3Bob3Rv/L2JpZy1tb2Rlcm4t/dHYtd2l0aC00ay1y/ZXNvbHV0aW9ucy1h/bmQteW91bmctd29t/YW4tb24tZm9yZWdy/b3VuZC13YXRjaGlu/Zy1zb21lLXZpZGVv/LmpwZz9zPTYxMng2/MTImdz0wJms9MjAm/Yz15R0ppU3FXWHNw/ekJKNzFmTk1tNHpa/QWc5UDZqNWp2ZTFD/WGx2cm1XeHNrPQ");
+        img.classList.add("placeholder");
+        document.querySelector("ul").append(img);
+
+        //add a highlight class to every even item in a list 
+       let list1= document.querySelectorAll("ul li:nth-child(2n)");
+        // console.log(list1);
+
+        list1.forEach(function(ele){
+            ele.classList.add("highlight");
+        })
+
+    </script>
+</body>
+
+</html>

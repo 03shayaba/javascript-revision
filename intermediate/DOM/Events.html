@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>apple</h1>
+    <p>Lorem ipsum dolor sit.</p>
+
+    <script>
+        let h1 = document.querySelector("h1");
+        h1.addEventListener("click" , function(){
+            h1.style.color = "red"
+        })
+
+        let p = document.querySelector('p');
+        // p.addEventListener("click" , function(){
+        //     p.style.color = "green"
+        // })
+         function doubleClick(){
+            p.style.color = "red"
+        }
+
+        p.addEventListener("dblclick" , doubleClick);
+        p.removeEventListener("dblclick" , doubleClick);
+    </script>
+</body>
+</html>

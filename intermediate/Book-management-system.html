@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmanagement</title>
+</head>
+
+<body>
+    <script>
+        let books = []
+        let input = prompt("which operation you want to perform [add] ,[list] ,[exit]");
+        while (input != "exit") {
+            if (input == "add") {
+                let newbook = prompt("enter Name of book");
+                books.push(newbook);
+            } else if (input == "list") {
+                document.writeln("list of available books" + "<br>");
+                document.writeln(books);
+            } else {
+                document.writeln("enter value option")
+            }
+            input = prompt("which operation you want to perform [add] ,[list] ,[exit]");
+        }
+
+        document.writeln("<br>"+"thanks for using our application")
+    </script>
+</body>
+
+</html>
