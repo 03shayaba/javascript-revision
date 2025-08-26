@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* input{
+            display: none;
+        } */
+        #btn {
+            background-color: rgb(23, 145, 131);
+            width: 200px;
+            height: 30px;
+            border-radius: 10px;
+            text-align: center;
+            padding: 20px 10px;
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+        }
+
+        .main {
+            margin: 10px;
+        }
+
+        .card {
+            color: blue;
+            max-width: 400px;
+            margin-top: 40px;
+            border-radius: 10px;
+            display: inline-block;
+            padding: 20px;
+            border: 2px solid black;
+        }
+
+        .profile {
+            width: 50px;
+            height: 50px;
+            /* background-color: rgb(36, 35, 97); */
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+
+<body>
+    <!-- 1st -->
+    <!-- <div class="main"> -->
+        <!-- <input type="file"> -->
+       <!--- <div id="btn">
+            Upload File
+        </div>
+    </div> -->
+
+
+    <!-- 2nd  -->
+    <div class="main">
+        <form action="">
+             <input type="text" placeholder="propfile pic"><br>
+            <input type="text" placeholder="name"> <br>
+            <input type="text" placeholder="occupation"><br>
+           
+            <input type="text" placeholder="info"><br>
+            <input type="submit">
+        </form>
+
+        <!-- <div class="card">
+            <div class="profile">
+                <img src="https://imgs.search.brave.com/cI9EhfzlmL_hwIZQGo516IzALxxJFiyJyPdE1PZ2o7w/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/Y3JlYXRlLnZpc3Rh/LmNvbS9hcGkvbWVk/aWEvc21hbGwvMTM4/NDI4MjIvc3RvY2st/cGhvdG8tcy1sZXR0/ZXItaW4tZ29sZA"
+                    alt="">
+            </div>
+            <h3>Shayaba</h3>
+            <h5>creative coder</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia autem iusto illum ullam reprehenderit
+                officia error deleniti voluptates similique sint, consequatur natus soluta!</p>
+        </div> -->
+    </div>
+
+
+    <script>
+        //             // first------------
+        //    let btn = document.querySelector("#btn");
+        //    let fileInput = document.querySelector("input");
+        //    btn.addEventListener("click" ,function(){
+        //     fileInput.click();
+        //    })
+
+
+        //    fileInput.addEventListener("change" , function(dets){
+        //     // console.log(dets.target.files[0].name);
+        //     // console.log(dets.target.value);     //path of the file we find it
+        //     const file = dets.target.files[0];
+        //     if(file){
+        //     btn.textContent =file.name;
+        //     }
+        //    })
+
+        //    2nd--------------
+
+        let form = document.querySelector("form");
+        let inputs = document.querySelectorAll("input");
+        let main = document.querySelector(".main");
+
+        form.addEventListener("submit", function (dets) {
+            dets.preventDefault();
+
+            let card = document.createElement("div");
+            card.classList.add("card");
+
+
+            let profile = document.createElement("div");
+            profile.classList.add("profile");
+
+            let img = document.createElement("img");
+            img.setAttribute("src", inputs[0].value);
+
+            let h3 = document.createElement("h3");
+            h3.textContent = inputs[1].value;
+            let h5 = document.createElement("h5");
+            h5.textContent = inputs[2].value;
+            let p = document.createElement("p");
+            p.textContent = inputs[3].value;
+
+
+
+            profile.appendChild(img);
+            card.appendChild(profile);
+            card.appendChild(h3);
+            card.appendChild(h5);
+            card.appendChild(p);
+
+            main.appendChild(card);
+            
+
+            inputs.forEach(function(inp){
+                if(inp.type !== "submit" ){
+                inp.value="";
+                }
+            })
+        })
+
+    </script>
+</body>
+
+</html>

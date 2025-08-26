@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h3 {
+            text-transform: capitalize;
+        }
+
+        h1 {
+            font-size: 14rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <h1>apple</h1> -->
+    <p>Lorem ipsum dolor sit.</p>
+    <input type="text" placeholder="Enter name">
+
+    <h3 id="device-selected">Slect you device</h3>
+    <select name="" id="">
+        <option selected disabled>choose your value</option>
+        <option value="samsung">Samsung</option>
+        <option value="apple">Apple iphone</option>
+        <option value="mi">xiomi</option>
+        <option value="vivo">Vivo V50e</option>
+        <option value="oppo">Oppo</option>
+    </select>
+
+
+
+
+    <h1> 1</h1>
+
+    <script>
+        // let h1 = document.querySelector("h1");
+        // h1.addEventListener("click" , function(){
+        //     h1.style.color = "red"
+        // })
+
+        let p = document.querySelector('p');
+        // p.addEventListener("click" , function(){
+        //     p.style.color = "green"
+        // })
+        function doubleClick() {
+            p.style.color = "red"
+        }
+
+        p.addEventListener("dblclick", doubleClick);
+        p.removeEventListener("dblclick", doubleClick);
+
+        let input = document.querySelector("input");
+        input.addEventListener("input", function (evt) {
+            // console.log("typed");
+            if (evt.data !== null) {
+                console.log(evt.data)
+            }
+        })
+
+        let sel = document.querySelector("select");
+        let device = document.querySelector("#device-selected");
+        sel.addEventListener("change", function (dets) {
+            device.textContent = ` ${dets.target.value}  Device Selected`
+            console.log(dets.target.value);
+        })
+
+
+        let heading1 = document.querySelector("h1");
+        window.addEventListener("keydown", function (dets) {
+            if (dets.key === " ") {
+                heading1.textContent = "SPC";
+            } else {
+                heading1.textContent = dets.key;
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
