@@ -8,6 +8,7 @@
 <body>
     <h1>apple</h1>
     <p>Lorem ipsum dolor sit.</p>
+    <input type="text" placeholder="Enter name">
 
     <script>
         let h1 = document.querySelector("h1");
@@ -25,6 +26,14 @@
 
         p.addEventListener("dblclick" , doubleClick);
         p.removeEventListener("dblclick" , doubleClick);
+
+        let input = document.querySelector("input");
+        input.addEventListener("input" , function(evt){
+            console.log("typed");
+            console.log(evt.data)
+        })
+
+        alert("hello faizan")
     </script>
 </body>
 </html>
