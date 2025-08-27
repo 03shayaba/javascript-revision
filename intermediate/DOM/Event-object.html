@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         #abcd{
+            position: absolute;
+            transition: all cubic-bezier(0.19, 1, 0.22, 1) .1s;
+            width:400px;
+            height:400px;
+            background-color: rgb(250, 199, 252);
+        }
+        body{
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- <div id="abcd"></div> -->
+
+    <form action="">
+        <input type="text" placeholder="name">
+        <input type="email" placeholder="email">
+        <input type="submit">
+
+    </form>
+
+
+    <script>
+        // let abcd = document.querySelector("#abcd");
+        // abcd.addEventListener("click" , function(dets){
+        //     console.log(dets);
+        // })
+
+
+        let form = document.querySelector("form");
+        form.addEventListener("submit" , function(dets){
+            dets.preventDefault();
+        })
+    </script>
+</body>
+</html>

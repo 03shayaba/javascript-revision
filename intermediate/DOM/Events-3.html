@@ -6,22 +6,49 @@
     <title>Document</title>
     <style>
         #abcd{
+            position: absolute;
+            transition: all cubic-bezier(0.19, 1, 0.22, 1) .1s;
             width:400px;
             height:400px;
             background-color: rgb(250, 199, 252);
         }
+        body{
+            position: relative;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
+
+    <!-- first -->
+     
+    <!-- <div id="abcd"></div> -->
+
+
+    <!-- second----------------- -->
+
+   
     <div id="abcd"></div>
+       
     <script>
+
+        // first-------------------
+        // let abcd = document.querySelector("#abcd");
+        // abcd.addEventListener("mouseover" , function(){
+        //     abcd.style.backgroundColor= "rgb(239, 252, 199)"
+        // })
+        //  abcd.addEventListener("mouseout" , function(){
+        //     abcd.style.backgroundColor= "rgb(250, 199, 252)"
+        // })
+
+        // second---------------
         let abcd = document.querySelector("#abcd");
-        abcd.addEventListener("mouseover" , function(){
-            abcd.style.backgroundColor= "rgb(239, 252, 199)"
+        window.addEventListener("mousemove" , function(dets){
+          abcd.style.top = dets.clientY + "px";
+          abcd.style.left = dets.clientX + "px";
         })
-         abcd.addEventListener("mouseout" , function(){
-            abcd.style.backgroundColor= "rgb(250, 199, 252)"
-        })
+
+
 
     </script>
 </body>

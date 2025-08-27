@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <script>
+
+
+var obj = {
+    name:"shivani",
+    age:12,
+    email:"shivani@gmail.com",
+    phone:2345678987
+}
+delete obj.phone;
+console.log(obj["name"]);
+console.log(obj.email);
+console.log(obj.phone);
+
+
+var obj1 = {
+    username:"shiv",
+    email:"shiv@gmail.com",
+    userphone:2425637980,
+
+    is_admin:{
+        admin_name:"shiv"
+    }
+}
+
+for(keys in obj){
+    console.log(keys , obj[keys]);
+}
+var obj3 =  {...obj ,...obj1}
+console.log(obj3)
+      </script>
+</body>
+</html>

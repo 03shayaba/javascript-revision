@@ -210,7 +210,7 @@
 }
 
 .content-side-2 h2 {
-    width:100%;
+    width: 100%;
     padding-top: 8px;
     padding-left: 8px;
     font-family: Georgia, serif;
@@ -270,8 +270,9 @@
     color: rgb(59, 37, 128);
     text-align: center;
     font-size: 3rem;
-     width: 100%;            /* was 750px */
-  max-width: 750px;  
+    width: 100%;
+    /* was 750px */
+    max-width: 750px;
     /* fixed width */
     margin: 0 auto;
     /* center horizontally */
@@ -454,80 +455,192 @@
 
 
 
-.performance{
-    display:flex;
+.performance {
+    display: flex;
     flex-direction: column;
     margin-bottom: 40px;
 }
-.performance-main p{
+
+.performance-main p {
     text-align: center;
-     color: rgb(55, 37, 129);
+    color: rgb(55, 37, 129);
     font-family: Georgia, serif;
     font-size: 1.4rem;
     font-weight: lighter;
     padding-left: 260px;
-    padding-right: 260px;padding-bottom:50px;
+    padding-right: 260px;
+    padding-bottom: 90px;
 }
 
-.performance-main h1{
-     text-align: center;
+.performance-main h1 {
+    text-align: center;
     color: rgb(59, 37, 128);
     font-family: Georgia, serif;
     font-size: 3.4rem;
     font-weight: bolder;
-    padding-left:300px;
+    padding-left: 300px;
     padding-right: 300px;
     padding-top: 50px;
-    padding-bottom:20px;
-}
-.performance-below{
-    display:flex;
+    padding-bottom: 20px;
 }
 
-.sidebar1{
-    padding-left:150px;
-    padding-top:30px;
+.performance-below {
+    display: flex;
+
+    /* margin-top:160px; */
 }
-.sidebar2{
+
+.sidebar1 {
+    padding-left: 150px;
+    padding-top: 180px;
+   
+}
+
+.sidebar1 ul li {
+    font-size: 1.2em;
+    font-weight: lighter;
+    font-family: Georgia, serif;
+    padding-bottom: 10px;
+    list-style: none;
+    color: rgb(45, 29, 94);
+    line-height: 2;
+}
+
+.sidebar2 {
     display: flex;
     flex-direction: column;
-    padding-left:50px;
+    padding-left: 20px;
+     padding-top:90px;
+     padding-bottom:20px;
+    
 }
-.go-drive{
-    display: flex; 
+
+.bg-main{
+     background-color: rgb(247, 245, 255);
+     /* padding:40px; */
+     border-radius: 10px;
+     margin-left: 40px;
+     /* margin-right: 20px; */
+
+    
 }
-.pr-drive{
+.go-drive {
+    display: flex;
+    
+}
+.go-drive i {
+  background-color: white;
+  border-radius: 50%;
+
+
+  font-size: 20px;
+  color: #4285F4;  /* sets the icon color if you want single-colored */
+}
+
+.go-drive  h2{
+   font-size: 1.2em;
+ 
+}
+
+.pr-drive {
     display: flex;
 }
-.one-drive{
+
+.pr-drive i{
+    font-size: 20px;
+}
+.pr-drive h2{
+    font-size: 1.2em;
+}
+
+.one-drive {
     display: flex;
 }
-.dropbox-drive{
+
+.dropbox-drive {
     display: flex;
 }
 
 
-.pr-tick{
-   display: flex; 
-   flex-direction: column;
-   margin-left:30px;
+.pr-tick {
+    display: flex;
+    flex-direction: column;
+    margin-left: 60px;
+    margin-top: 38px;
 }
 
-.go-tick{
+.pr-tick i {
+
+    margin-top: 24PX;
+    font-size: 15px;
+    /* padding-top: 10px; */
+    color:white;
+   
+   
+}
+.icon{
+    width:25px;
+    height:25px;
+    padding-top:5px;
+   border-radius: 50%;
+  background-color: rgb(90, 232, 90); 
+  text-align: center;
+ 
+
+}
+
+.go-tick {
     display: flex;
-       flex-direction: column;
-       margin-left:30px;
+    flex-direction: column;
+    margin-left: 60px;
+    margin-top: 38px;
 }
-.one-tick{
+
+.go-tick i {
+    
+      margin-top: 24PX;
+    font-size: 15px; 
+     color:rgb(248, 125, 125); 
+}
+.icon-1{
+     /* color: rgb(248, 111, 111); */
+    width: 26px;
+    height: 25px;
+    
+    padding-top:5px;
+    padding-left:7px;
+   
+    border-radius: 50%;
+    background-color: rgb(250, 237, 238); 
+}
+
+.one-tick {
     display: flex;
-       flex-direction: column;
-       margin-left:30px;
+    flex-direction: column;
+    margin-left:60px;
+    margin-top: 38px;
 }
-.drop-tick{
-    display:flex;
-       flex-direction: column;
-       margin-left:30px;
+
+.one-tick i {
+    margin-top: 24PX;
+    font-size: 15px; 
+     color:rgb(248, 125, 125); 
 }
+
+.drop-tick {
+    display: flex;
+    flex-direction: column;
+    margin-left:60px;
+    margin-top: 38px;
+}
+
+.drop-tick i {
+    margin-top: 24PX;
+    font-size: 15px; 
+
+     color:rgb(248, 125, 125); 
+}
+
 
 /* media query */
 
@@ -550,16 +663,18 @@
         text-align: center;
         margin: 15px 0;
     }
-    .content .heading-hero{
-         font-size: 1.6rem;   
-    }
-    .content-side .new-heading{
-        font-size:1.2rem;
+
+    .content .heading-hero {
+        font-size: 1.6rem;
     }
 
-    
-    .content-2 p{
-         font-size: 1.1em;
+    .content-side .new-heading {
+        font-size: 1.2rem;
+    }
+
+
+    .content-2 p {
+        font-size: 1.1em;
     }
 
     .right-side img {
@@ -568,7 +683,7 @@
         max-width: 800px;
         height: auto;
     }
-    
+
 
     .hero-section-2 {
         flex-direction: column;
@@ -597,109 +712,121 @@
     }
 
     .Main-cards {
-       flex-direction: column;
+        flex-direction: column;
         /* 👈 side by side se neeche */
         height: auto;
         /* 👈 fixed height hata do */
         /* margin-left: 20px;
         margin-right: 10px; */
-        
+
         padding: 20px 0;
     }
 
     .cards {
-       
+
         flex-direction: column;
-        align-items:center;
-        width:100%;
+        align-items: center;
+        width: 100%;
     }
 
     .card1 img {
-          margin: 0 auto; 
+        margin: 0 auto;
         width: 100%;
         /* 👈 responsive */
         max-width: 900px;
         height: auto;
     }
-    
+
     .card1 {
-    width: 100%;               /* 👈 thoda shrink karke screen me fit */
-    margin-bottom: 20px;
+        width: 100%;
+        /* 👈 thoda shrink karke screen me fit */
+        margin-bottom: 20px;
     }
 
-  .card1 h1 {
-   font-size: 1.3em;
+    .card1 h1 {
+        font-size: 1.3em;
     }
+
     .card1 p {
-   font-size: 1.1em;
+        font-size: 1.1em;
     }
-    .Main-cards .top-heading {
-    font-size: 1.3rem;        /* 👈 main heading responsive */
-    text-align: center;
-    margin-bottom: 30px;
-  } 
 
-  .organise-sec{
-    flex-direction: column;
-  }
-.right-side-sec img{
-     width: 100%;
+    .Main-cards .top-heading {
+        font-size: 1.3rem;
+        /* 👈 main heading responsive */
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .organise-sec {
+        flex-direction: column;
+    }
+
+    .right-side-sec img {
+        width: 100%;
         /* 👈 responsive */
         max-width: 900px;
         height: auto;
-}  
+    }
 
 }
 
 
-@media (max-width:460px){
-    .content{
+@media (max-width:460px) {
+    .content {
         padding-left: 10px;
-        padding-right: 10px; 
+        padding-right: 10px;
     }
+
     .right-side img {
         width: 90%;
         /* 👈 responsive */
         max-width: 500px;
         height: auto;
     }
- .Main-cards .top-heading {
-    font-size: 1.6rem;        
-    text-align: center;
-    margin-bottom: 30px;
-  } 
-.content-side-2  .content-heading{
-        font-size: 1.6rem;        
+
+    .Main-cards .top-heading {
+        font-size: 1.6rem;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .content-side-2 .content-heading {
+        font-size: 1.6rem;
         text-align: center;
     }
+
     .cards {
-       
+
         flex-direction: column;
-        align-items:center;
-        width:100%;
-         padding-left: 10px;
+        align-items: center;
+        width: 100%;
+        padding-left: 10px;
         padding-right: 10px;
     }
-     .card1 img {
-          margin: 0 auto; 
+
+    .card1 img {
+        margin: 0 auto;
         width: 100%;
         /* 👈 responsive */
         max-width: 700px;
         height: auto;
-    } 
-    .content-2{
-         padding-left: 10px;
-    padding-right: 10px;
     }
-      .organise-sec{
-        padding-left: 10px;
-        padding-right:10px;
-      }
 
-    .right-side-sec img{
-     width: 100%;
+    .content-2 {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .organise-sec {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .right-side-sec img {
+        width: 100%;
         /* 👈 responsive */
         max-width: 700px;
         height: auto;
-} 
+    }
 }
