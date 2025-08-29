@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+</head>
+<body>
+    
+    <script>
+
+        function greet(name) {
+            return `Hello, ${name}`
+        }
+
+        function processUserInput (callback) {
+            let name = "Prince"
+
+            const admin_name = "Sumit"
+
+            console.log(callback(name))
+            console.log(callback(admin_name))
+
+            
+
+        }
+
+        function admin(admin_name) {
+           return `Hello ${admin_name} you are admin`
+        }
+
+        // processUserInput(greet)
+
+        processUserInput(greet);
+        processUserInput(admin);
+
+    </script>
+
+</body>
+</html>

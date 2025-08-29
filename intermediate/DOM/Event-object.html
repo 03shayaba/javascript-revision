@@ -1,46 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-         #abcd{
+        /* #abcd{
             position: absolute;
             transition: all cubic-bezier(0.19, 1, 0.22, 1) .1s;
             width:400px;
             height:400px;
             background-color: rgb(250, 199, 252);
-        }
-        body{
+        } */
+        body {
+            width: 100%;
+            height: 100%;
             position: relative;
             overflow: hidden;
         }
+
+
+        #main {
+            width: 100%;
+            height: 100vh;
+            background-color: rgb(55, 49, 49);
+        }
+
+        #nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+            height: 60px;
+            background-color: rgb(88, 85, 85);
+
+        }
+
+        a {
+            color: white;
+
+        }
+
+        button {
+            padding: 12px 28px;
+            background-color: rgb(168, 248, 255);
+            border-radius: 10px;
+            border: none;
+        }
+
+        .lt {
+            text-decoration: line-through;
+        }
+
+        .a {
+            width: 500px;
+            height: 400px;
+            background-color: aqua;
+        }
+
+        .b {
+            width: 400px;
+            height: 300px;
+            background-color: rgb(184, 245, 30);
+        }
+
+        .c {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(245, 30, 191);
+        }
     </style>
 </head>
+
 <body>
-    
+
     <!-- <div id="abcd"></div> -->
 
-    <form action="">
+    <!-- <form action="">
         <input type="text" placeholder="name">
         <input type="email" placeholder="email">
         <input type="submit">
 
-    </form>
+
+        
+
+    </form> -->
+
+
+    <!-- event bubbling -->
+
+    <!-- <div id="main">
+        <div id="nav">
+            <a href="">Home</a>
+            <a href="">about</a>
+            <button>click and follow</button>
+        </div>
+    </div> -->
+
+    <!-- <ul>
+        <li>Apple</li>
+        <li>bnana</li>
+        <li>mango</li>
+        <li>guava</li>
+        <li>papaya</li>
+    </ul> -->
+
+
+    <div class="a">
+        <div class="b">
+            <div class="c">
+                <button>Click me</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- event capturing -->
 
 
     <script>
+
         // let abcd = document.querySelector("#abcd");
         // abcd.addEventListener("click" , function(dets){
         //     console.log(dets);
         // })
 
 
-        let form = document.querySelector("form");
-        form.addEventListener("submit" , function(dets){
-            dets.preventDefault();
+        // let form = document.querySelector("form");
+        // form.addEventListener("submit" , function(dets){
+        //     dets.preventDefault();
+        // })
+
+        // <!-- event bubbling -->------------------------------------
+
+        // document.querySelector("#main").addEventListener("click" , function(){
+        //     alert("clicked");
+        // })
+
+        // let ul = document.querySelector("ul");
+        // ul.addEventListener("click", function (dets) {
+        //     dets.target.classList.toggle("lt");
+        // })
+
+
+
+
+        // <!-- event capturing -->------------------
+
+        let a = document.querySelector(".a");
+        let b = document.querySelector(".b");
+        let c = document.querySelector(".c");
+        let btn = document.querySelector("button");
+        btn.addEventListener("click", function () {
+            console.log("btn clicked");
         })
+
+        c.addEventListener("click", function () {
+            console.log("c clicked");
+        })
+        b.addEventListener("click", function () {
+            console.log("b clicked");
+        })
+        a.addEventListener("click", function () {
+            console.log("a clicked");
+        }, true)
+
     </script>
 </body>
+
 </html>

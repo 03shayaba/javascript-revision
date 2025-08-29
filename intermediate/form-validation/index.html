@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        small{
+            
+           color:rgb(53, 43, 109) ;
+           font-size:20px;
+        }
+
+        .hide{
+            display:none;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <input  id="name" type="text"  placeholder="name">
+        <div class="hide"><br>
+        <small>Your name should be greater than 2 characters </small></div> <br> <br>
+        <input type="email" placeholder="email"><br> <br>
+        <input type="password" placeholder="password"> <br> <br>
+
+        <select name="" id="">
+            <option value="male">Male</option>
+            <option value="female">female</option>
+            <option value="other">other</option>
+            
+        </select> <br> <br>
+
+       
+
+        <textarea name="" id="" placeholder="tell us about your details"></textarea> <br><br>
+         <input type="submit">
+    </form>
+
+
+
+    <script>
+
+        let nm = document.querySelector("#name");
+        let form  = document.querySelector("form");
+
+        form.addEventListener("submit", function(dets){
+            dets.preventDefault();
+            if(nm.value.length<= 2){
+                document.querySelector(".hide").style.display = "initial";
+            }
+            else{
+                document.querySelector(".hide").style.display = "none"; 
+            }
+        })
+    </script>
+</body>
+
+</html>
