@@ -1,0 +1,139 @@
+
+
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email & Password Validator</title>
+  
+  <style>body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f4f6f9;
+}
+
+.container {
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  width: 320px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+}
+
+input:focus {
+  border-color: #007bff;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+.error {
+  color: red;
+  font-size: 13px;
+  margin-top: 4px;
+  display: block;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login Form</h2>
+    <form id="loginForm">
+      
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" id="email" placeholder="Enter your email">
+        <small class="error" id="emailError"></small>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter your password">
+        <small class="error" id="passwordError"></small>
+      </div>
+
+      <button type="submit">Validate</button>
+      <h1 class="result"></h1>
+    </form>
+  </div>
+
+  <script >
+
+   let email = document.querySelector("#email");
+   let password = document.querySelector("#password");
+
+   let form = document.querySelector("form");
+
+   form.addEventListener("submit" , function(dets){
+    dets.preventDefault();
+
+let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+let passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+
+    let emailans = emailPattern.test(email.value);
+    let passwordans = passwordPattern.test(password.value);
+   let  isValid = true;
+
+    if(!emailans){
+       document.querySelector("#emailError").textContent = "email is incorrect" ;
+         document.querySelector("#emailError").style.display = "initial" 
+         let  isValid = false;
+    }
+    if(!passwordans){
+        document.querySelector("#passwordError").textContent="password is incorrect";
+                document.querySelector("#passwordError").style.display = "initial" 
+                let  isValid = false;
+    }
+
+    if(isValid){
+        document.querySelector("result").textContent = " everything is correct"
+    }
+   })
+  </script>
+</body>
+</html>

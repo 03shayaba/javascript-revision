@@ -768,7 +768,32 @@
 }
 
 
+footer{
+    margin-top:20px;
+    padding-left:40px;
+}
 
+.fotter-layer{
+    display: flex;
+}
+
+.fotter-layer  a{
+    padding-left: 10px;
+    padding-bottom:30px;
+    list-style:none;
+    font-size: .8em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(106, 105, 105);
+}
+.fotter-layer  h1{
+    padding-left: 10px;
+    padding-bottom:30px;
+    list-style:none;
+    font-size: .8em;
+    color: rgb(106, 105, 105);
+}
 /* media query */
 
 @media (max-width:1028px) {

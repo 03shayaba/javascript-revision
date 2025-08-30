@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>CSS-only Download Card</title>
+<style>
+  :root{
+    --card-bg: #0f1724;
+    --muted: #9aa6b2;
+    --accent: #06b6d4;
+    --accent-2: #16a34a;
+    --glass: rgba(255,255,255,0.04);
+    --radius: 14px;
+  }
+
+  *{box-sizing:border-box;font-family:Inter, system-ui, Arial, sans-serif}
+
+  body{
+    min-height:100vh;
+    margin:0;
+    display:grid;
+    place-items:center;
+    background:
+      radial-gradient(1200px 600px at 10% 10%, rgba(6,182,212,0.06), transparent 8%),
+      radial-gradient(900px 500px at 90% 90%, rgba(22,163,74,0.04), transparent 10%),
+      #071024;
+    color: #e6eef6;
+    padding:28px;
+  }
+
+  /* Card */
+  .download-card{
+    width: 380px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius: var(--radius);
+    padding:18px;
+    box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+    border:1px solid rgba(255,255,255,0.03);
+    backdrop-filter: blur(6px);
+  }
+
+  .top{
+    display:flex;
+    gap:12px;
+    align-items:center;
+  }
+
+  .file-icon{
+    width:56px;
+    height:56px;
+    border-radius:10px;
+    background:linear-gradient(135deg,var(--accent), #3b82f6);
+    display:grid;
+    place-items:center;
+    font-weight:700;
+    color:#fff;
+    font-size:20px;
+    box-shadow: 0 6px 18px rgba(6,182,212,0.12);
+  }
+
+  .meta{
+    flex:1;
+  }
+  .meta .name{
+    font-size:15px;
+    font-weight:700;
+    margin-bottom:4px;
+  }
+  .meta .sub{
+    font-size:13px;
+    color:var(--muted);
+  }
+
+  /* Controls row */
+  .controls{
+    display:flex;
+    gap:8px;
+    margin-top:14px;
+    align-items:center;
+  }
+
+  .btn{
+    padding:8px 12px;
+    border-radius:10px;
+    font-size:13px;
+    background:var(--glass);
+    color:var(--muted);
+    border:1px solid rgba(255,255,255,0.02);
+    cursor:pointer;
+    user-select:none;
+  }
+  .btn.primary{
+    background: linear-gradient(90deg, rgba(6,182,212,0.14), rgba(22,163,74,0.06));
+    color: #dff7fb;
+    font-weight:600;
+  }
+
+  /* Progress area */
+  .progress-wrap{
+    margin-top:14px;
+    position:relative;
+    padding:14px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,0.02);
+  }
+
+  /* Visual progress bar (animated layer) */
+  .visual-bar{
+    height:12px;
+    border-radius:999px;
+    background:#0b1220;
+    position:relative;
+    overflow:hidden;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+  }
+
+  .visual-bar .fill{
+    height:100%;
+    width:0%;
+    background: linear-gradient(90deg, var(--accent), #60a5fa 70%, var(--accent-2));
+    border-radius:inherit;
+    transition: width 250ms linear;
+    transform-origin:left center;
+  }
+
+  /* Slider styled to sit over the visual bar */
+  input[type=range]{
+    -webkit-appearance:none;
+    appearance:none;
+    width:100%;
+    margin-top:12px;
+    background:transparent;
+  }
+
+  /* Track behind slider - invisible because we use visual bar */
+  input[type=range]::-webkit-slider-runnable-track{
+    height:6px;
+    background:transparent;
+  }
+  input[type=range]::-moz-range-track{ background:transparent;height:6px;}
+
+  /* Thumb */
+  input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance:none;
+    width:18px;height:18px;border-radius:50%;
+    background:linear-gradient(180deg,#fff,#e6f7fb);
+    box-shadow: 0 3px 12px rgba(6,182,212,0.16), 0 1px 0 rgba(0,0,0,0.3);
+    border:4px solid rgba(6,182,212,0.12);
+    margin-top:-6px;
+    cursor:pointer;
+  }
+  input[type=range]::-moz-range-thumb{
+    width:18px;height:18px;border-radius:50%;
+    background:#fff;border:none;cursor:pointer;
+    box-shadow: 0 3px 12px rgba(6,182,212,0.16);
+  }
+
+  /* Percentage label (pure CSS overlay) */
+  .percent{
+    position:absolute;
+    right:12px;
+    top:10px;
+    font-size:13px;
+    color:var(--muted);
+    background: rgba(255,255,255,0.02);
+    padding:6px 8px;
+    border-radius:8px;
+    border:1px solid rgba(255,255,255,0.02);
+  }
+
+  /* Auto toggle checkboxes (hidden inputs with labels as buttons) */
+  .toggles{
+    display:flex;
+    gap:8px;
+    margin-left:auto;
+  }
+
+  .toggles input{ display:none; }
+
+  .toggles label{
+    display:inline-grid;
+    place-items:center;
+    gap:6px;
+    font-size:13px;
+    padding:8px 10px;
+    border-radius:9px;
+    cursor:pointer;
+    color:var(--muted);
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.02);
+  }
+
+  /* When forward auto is active, change visual fill with keyframes */
+  #auto-forward:checked ~ .progress-wrap .visual-bar .fill{
+    animation: fill-forward 5s linear infinite;
+  }
+
+  #auto-backward:checked ~ .progress-wrap .visual-bar .fill{
+    animation: fill-back 5s linear infinite;
+  }
+
+  /* subtle active look for labels */
+  #auto-forward:checked + label[for="auto-forward"],
+  #auto-backward:checked + label[for="auto-backward"]{
+    color: #042f34;
+    background: linear-gradient(90deg, rgba(6,182,212,0.18), rgba(22,163,74,0.08));
+    border:1px solid rgba(6,182,212,0.12);
+  }
+
+  /* Keyframes */
+  @keyframes fill-forward{
+    0%{ width:0%;}
+    50%{ width:80%;}
+    100%{ width:100%;}
+  }
+  @keyframes fill-back{
+    0%{ width:100%;}
+    50%{ width:20%;}
+    100%{ width:0%;}
+  }
+
+  /* small footer row */
+  .foot{
+    margin-top:12px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    color:var(--muted);
+    font-size:13px;
+  }
+
+  /* make the visual fill follow slider value using CSS only trick:
+     We set the fill width using the "style" attribute on the input (user can edit in markup).
+     But because editing the DOM value requires JS, we let the slider move visually while
+     the fill is a separate layer. For convenience, we also set the initial width with inline style
+     below in the HTML. */
+  /* small responsive */
+  @media (max-width:420px){
+    .download-card{width:96%}
+  }
+
+</style>
+</head>
+<body>
+
+<div class="download-card">
+  <div class="top">
+    <div class="file-icon">ZIP</div>
+    <div class="meta">
+      <div class="name">project-assets.zip</div>
+      <div class="sub">Size: 48.6 MB • from cloud-drive</div>
+    </div>
+
+    <!-- Auto toggles are inputs placed here so their :checked state can target the progress area below -->
+    <div class="toggles">
+      <input type="checkbox" id="auto-forward" />
+      <label for="auto-forward" title="Auto progress forward">▶ Auto →</label>
+
+      <input type="checkbox" id="auto-backward" />
+      <label for="auto-backward" title="Auto progress backward">◀ Auto ←</label>
+    </div>
+  </div>
+
+  <!-- Controls (left: primary button + secondary) -->
+  <div class="controls">
+    <div class="btn primary">Download</div>
+    <div class="btn">Pause</div>
+    <div class="btn">Cancel</div>
+  </div>
+
+  <!-- Progress area -->
+  <div class="progress-wrap">
+    <div class="percent">48%</div>
+
+    <!-- Visual bar shows animated fill. You can also set its width inline for an initial state. -->
+    <div class="visual-bar" aria-hidden="true">
+      <div class="fill" style="width:48%"></div>
+    </div>
+
+    <!-- The range slider is what the user drags to change progress (works without JS). -->
+    <input
+      type="range"
+      min="0"
+      max="100"
+      value="48"
+      aria-label="Download progress"
+      onchange="/* noop - no JS required; kept for progressive enhancement */"
+    />
+    <!-- Note: the inline onchange is harmless — nothing executes. It's present so developers know where to add JS if they later want dynamic numeric display. -->
+  </div>
+
+  <div class="foot">
+    <div>ETA: 00:01:22</div>
+    <div>Speed: 1.2 MB/s</div>
+  </div>
+</div>
+
+</body>
+</html>
