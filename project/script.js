@@ -18,7 +18,7 @@ let img0 = document.getElementById("change-image");
 
 row1.addEventListener("click", function (dets) {
   dets.preventDefault();
-  img.setAttribute("src", "org.avif");
+  img0.setAttribute("src", "images/org.avif");
 });
 
 let row2 = document.querySelector("#sec-row");
@@ -26,7 +26,7 @@ let img = document.getElementById("change-image");
 
 row2.addEventListener("click", function (dets) {
   dets.preventDefault();
-  img.setAttribute("src", "change1.jpg");
+  img.setAttribute("src", "images/change1.jpg");
 });
 
 let row3 = document.querySelector("#third-row");
@@ -34,7 +34,7 @@ let img1 = document.getElementById("change-image");
 
 row3.addEventListener("click", function (dets) {
   dets.preventDefault();
-  img1.setAttribute("src", "change2.avif");
+  img1.setAttribute("src", "images/change2.avif");
 });
 
 

@@ -732,11 +732,11 @@
 }
 
 .left-privacy {
-  background-image: url("pos1.avif");
+  background-image: url("images/pos1.avif");
 }
 
 .right-privacy {
-  background-image: url("pos2.avif");
+  background-image: url("images/pos2.avif");
 }
 
 .left-content {
@@ -794,6 +794,51 @@ footer{
     font-size: .8em;
     color: rgb(106, 105, 105);
 }
+
+
+
+
+/* form section */
+ .main-heading{
+    text-align:center;
+ }
+
+
+  .form-sec{
+    margin-top:60px;
+  }
+ .form-sec .form-heading-main{
+   text-align:center; 
+   color:rgb(59, 37, 128);
+   font-size:2.5rem;
+   padding-left:100px;
+   padding-right:100px;
+   padding-bottom:30px;
+
+ }
+
+ .forms{
+    display:flex;
+ }
+
+ .left-input{
+    margin-top: 30px;
+    margin-left:100px;
+    margin-right:100px;
+ }
+
+  .left-input label{
+     color:rgb(59, 37, 128);
+     font-size: .8em;
+  }
+
+  .left-input input{
+    height:20px;
+  }
+
+  .left-input  h1{
+
+  }
 /* media query */
 
 @media (max-width:1028px) {
@@ -993,6 +1038,34 @@ footer{
     margin-bottom: 14px;  
 }
 
+
+    
+
+    .left-privacy{
+        width:100%;
+       max-width: 300px; 
+      margin-left: 106px;
+     max-height:430px ;
+     /* position: absolute; */
+      
+    }
+    .right-privacy{
+        width:100%;
+       max-width: 300px; 
+      margin-left: 106px;
+      max-height:450px ;
+    }
+
+    .left-content {
+    position: relative;
+    right: 90px;
+    width: 100%;
+    top:20px;
+    min-height: 35%;
+    
+}
+
+
 }
 
 
@@ -1015,6 +1088,48 @@ footer{
         padding-top:220px;
         
     }
+    .main-privacy{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main-privacy{
+        /* max-width: 412px; */
+
+    }
+
+    .left-privacy{
+        width:100%;
+       max-width: 650px;
+
+      margin-left: 100px;
+      margin-right: 30px;
+    
+      
+    }
+    .right-privacy{
+       width:100%;
+       max-width: 650px;
+
+      margin-left: 100px;
+      margin-right: 30px;
+    }
+
+    .left-content {
+    position: relative;
+    right: 90px;
+    width: 100%;
+    top:20px;
+    min-height: 35%;
+    border-radius: 20px;
+    background-color: white;
+    padding: 30px;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+
 }
 
 @media (max-width:460px) {
@@ -1156,4 +1271,113 @@ footer{
           padding-left: 20px;
     }
 
+
+    .privacy-heading{
+        font-size: 1.8rem;
+    }
+
+    .privacy-para{
+        padding-left:0px;
+        padding-right:0px;
+        font-size:1.2em;
+        padding-bottom:40px;
+    }
+
+    .main-privacy{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main-privacy{
+        max-width: 412px;
+
+    }
+
+    .left-privacy{
+        width:100%;
+       max-width: 300px; 
+      margin-left: 106px;
+     max-height:430px ;
+     /* position: absolute; */
+      
+    }
+    .right-privacy{
+        width:100%;
+       max-width: 300px; 
+      margin-left: 106px;
+      max-height:450px ;
+    }
+
+    .left-content {
+    position: relative;
+    right: 90px;
+    width: 100%;
+    top:20px;
+    min-height: 35%;
+    border-radius: 20px;
+    background-color: white;
+    padding: 30px;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+footer{
+    padding-left:20px;
+}
+.fotter-layer{
+    flex-direction: column;
+}
+.fotter-layer a{
+    padding-bottom: 10px;
+}
+
+}
+
+@media (max-width:360px){
+   .main-privacy{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main-privacy{
+        max-width: 412px;
+
+    }
+
+    .left-privacy{
+        width:100%;
+       max-width: 250px; 
+      margin-left: 106px;
+     max-height:380px ;
+     /* position: absolute; */
+      
+    }
+    .right-privacy{
+        width:100%;
+       max-width: 250px; 
+      margin-left: 106px;
+      max-height:380px ;
+    }
+
+    .left-content {
+    position: relative;
+    right: 90px;
+    width: 100%;
+    top:20px;
+    
+    min-height: 0%;
+    
+    padding: 15px;
+ 
+}
+
+.left-content h1{
+    font-size: 1.2rem;
+}
+
+
+.left-content p{
+    font-size: 1em;
+}
 }
