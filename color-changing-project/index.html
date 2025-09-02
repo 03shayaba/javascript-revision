@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>DOM important Methods and Attributes</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tem
+        por incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis no
+        strud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis a
+        ute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia d
+        eserunt mollit anim id est laborum.</p>
+
+    <ul>
+        <li class="first">Chicken</li>
+        <li>Mutton</li>
+        <li>Fish</li>
+        <li id="special">Any animal including Human being</li>
+    </ul>
+    <h1>new heading</h1>
+    <h2>Favourate Drink:</h2>
+    <ul>
+        <li class="first">KingFisher</li>
+        <li>KnockOut</li>
+        <li>Milk</li>
+        <li>Thumsup</li>
+    </ul>
+
+
+    
+
+    <script>
+
+        var h1 = document.querySelectorAll("h1");
+
+        var h2 = document.querySelector("h2");
+
+        var uls = document.querySelectorAll("ul");
+
+        var p = document.querySelector("p");
+
+        function getRandomColor() {
+            var letter = "0123456789ABCDEF"
+            var color = "#";
+
+            for (var i = 0; i < 6; i++) {
+                var r = Math.floor(Math.random() * 16)
+
+                color = color + letter[r]
+            }
+            return color;
+        }
+
+        function changeColor() {
+            var rc = getRandomColor()
+            // h1.style.color = rc;
+            p.style.color = getRandomColor();
+            h2.style.color = getRandomColor();
+
+            uls.forEach(function (ul) {
+                ul.style.color = getRandomColor();
+
+            });
+
+            h1.forEach((ele) => {
+                ele.style.color = getRandomColor();
+            })
+
+
+        }
+
+        setInterval(changeColor, 1000)
+
+    </script>
+</body>
+
+</html>

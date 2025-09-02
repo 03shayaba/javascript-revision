@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <input type="text" id="main" value="world"> 
+
+
+   <script>
+
+    // without using setattribute and getattribute
+    // let input = document.querySelector('input')
+
+    // console.log(input.id);
+    // console.log(input.value);
+    // console.log(input.type);
+
+    // input.id="newId";
+    // input.name="newName";
+    // input.value="shayaba";
+
+
+    // with using setattribute and getattribute
+
+     let input = document.querySelector('input')
+       console.log( input.getAttribute('type'));            //text
+        console.log( input.getAttribute('id'));             //main
+        console.log( input.getAttribute('value'));          //world
+
+
+        input.setAttribute("id" , "newId");
+         input.setAttribute("type" , "email");
+          input.setAttribute("value" , "shyaba");
+
+        console.log( input.getAttribute('id'));         //newId
+        console.log( input.getAttribute('type'));      //email 
+        console.log( input.getAttribute('value'));        //shayaba
+   </script>
+</body>
+</html>

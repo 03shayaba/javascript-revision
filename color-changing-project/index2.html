@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>DOM important Methods and Attributes</h1>
+    <h1>new heading 1</h1>
+    <h1>new heading 2</h1>
+    <button onclick="change_heading_color()">Change-heading1-color</button>
+
+    <h2>Lorem ipsum dolor sit amet.</h2>
+    <h2>Lorem ipsum dolor sit amet.</h2>
+    <h2>Lorem ipsum dolor sit amet.</h2>
+    <button onclick="change_heading2_color()">Change-heading2-color</button>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tem
+        por incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis no
+        strud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis a
+        ute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia d
+        eserunt mollit anim id est laborum.</p>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tem
+        por incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis no
+        strud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis a
+        ute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia d
+        eserunt mollit anim id est laborum.</p>
+    <button onclick="change_para_color()">Change-para-color</button>
+
+
+    <ul>
+        <li class="first">Chicken</li>
+        <li>Mutton</li>
+        <li>Fish</li>
+        <li id="special">Any animal including Human being</li>
+    </ul>
+
+
+    <ul>
+        <li class="first">KingFisher</li>
+        <li>KnockOut</li>
+        <li>Milk</li>
+        <li>Thumsup</li>
+    </ul>
+    <button onclick="change_ul_color()">Change-list-color</button>
+
+    <button onclick="changeColorof()">ChangeColor</button>
+
+
+    <script>
+
+        var h1 = document.querySelectorAll("h1");
+
+        var h2 = document.querySelectorAll("h2");
+
+        var ul = document.querySelectorAll("ul");
+
+        var p = document.querySelectorAll("p");
+
+        function getRandomColor() {
+            var letter = "0123456789ABCDEF"
+            var color = "#";
+
+            for (var i = 0; i < 6; i++) {
+                var r = Math.floor(Math.random() * 16)
+
+                color = color + letter[r]
+            }
+            return color;
+        }
+
+        // function changeColor() {
+        //     var rc = getRandomColor()
+        //     // h1.style.color = rc;
+        //     p.style.color = getRandomColor();
+        //     h2.style.color = getRandomColor();
+
+        //     uls.forEach(function (ul) {
+        //     ul.style.color = getRandomColor();
+
+        //     });
+
+        //     h1.forEach((ele) => {
+        //         ele.style.color = getRandomColor();
+        //     })
+        // }
+
+        function changeColor1() {
+            h1.forEach((ele) => {
+                ele.style.color = getRandomColor();
+            })
+
+        }
+         function changeColor2() {
+            h2.forEach((ele) => {
+                ele.style.color = getRandomColor();
+            })
+
+        }
+
+
+         function changeColor3() {
+            p.forEach((ele) => {
+                ele.style.color = getRandomColor();
+            })
+
+        }
+
+        function changeColor4() {
+            ul.forEach((ele) => {
+                ele.style.color = getRandomColor();
+            })
+
+        }
+
+
+        function changeColorof() {
+            setInterval(changeColor, 1000)
+        }
+
+        function change_heading_color() {
+            setInterval(changeColor1, 1000)
+        }
+        function change_heading2_color() {
+            setInterval(changeColor2, 1000)
+        }
+        function change_para_color() {
+            setInterval(changeColor3, 1000)
+        }
+        function change_ul_color(){
+            setInterval(changeColor4, 1000)
+        }
+
+    </script>
+</body>
+
+</html>

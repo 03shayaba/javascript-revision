@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            width:200px;
+            height: 200px;
+            background-color: rgb(232, 254, 222);
+            margin-top:30px;
+            margin-left: 20px;
+            margin-bottom: 30px;
+        }
+        .first{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <h1>this is heading 1 </h1>
+    <button  onclick="Changetext()">click it</button>
+    <div class="first">
+    <div class="main"  ></div>
+    <div class="main"  ></div>
+    <div class="main"  ></div>
+    <div class="main"  ></div>
+</div>
+
+    <button onclick="ChangeColor()">change-color</button>
+
+
+    <h1 class="box"></h1>
+    <h1 class="box"></h1>
+    <h1 class="box"></h1>
+     <button onclick="toinsert()">insert text</button>
+
+
+    <script>
+
+        function Changetext(){
+            let h1 = document.getElementsByTagName("h1")[0];
+            // document.writeln(h1);
+            h1.innerHTML = "<h3> this is heading 2 <h3>";
+
+            
+        }
+
+        function ChangeColor(){
+            let colors = document.querySelectorAll(".main")
+            colors.forEach(element => {
+                element.style.backgroundColor = "red";
+            });
+        }
+
+        function toinsert(){
+             let h2 = document.getElementsByClassName("box") 
+            for(text1 of h2){
+                text1.textContent = "this is heading 1"
+            }
+        }
+
+
+        
+
+    </script>
+</body>
+</html>

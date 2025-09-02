@@ -1,8 +1,10 @@
-<div class="container">Click me 1</div>
-<div class="container">Click me 2</div>
-<div class="container">Click me 3</div>
-
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
   .container {
     width: 150px;
     height: 150px;
@@ -15,6 +17,15 @@
   }
 </style>
 
+</head>
+<body>
+  
+<div class="container">Click me 1</div>
+<div class="container">Click me 2</div>
+<div class="container">Click me 3</div>
+
+
+
 <script>
   const containers = document.querySelectorAll(".container");
 
@@ -25,4 +36,21 @@
       box.style.backgroundColor = randomColor;
     });
   });
+
+
+  // localStorage.setItem("name" , "shayaba")
+  // let val = localStorage.getItem("name")
+  // localStorage.removeItem("name");
+  // localStorage.removeItem("isLoggedIn");
+  // localStorage.removeItem("currentUser");
+
+  // localStorage.setItem("friend" , ["akash" , "sumit" , "amit"])
+  localStorage.setItem("friend" , JSON.stringify(["akash" , "sumit" , "amit"]));
+
+  let fr = JSON.parse(localStorage.getItem("friend"));
+  console.log(fr);
 </script>
+
+</body>
+</html>
+
