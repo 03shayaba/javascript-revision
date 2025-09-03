@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .main,
+        .main2 {
+            /* width:30px;
+            height: 300px; */
+            display: none;
+
+        }
+
+        .form1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* margin-top: 100px; */
+            margin-left: 490px;
+            margin-right: 490px;
+            border: 1px solid gray;
+            border-radius: 10px;
+            padding: 10px;
+
+
+        }
+
+        .main h1 {
+            background: linear-gradient(to right, rgb(107, 4, 132), rgb(68, 46, 139));
+            color: white;
+            /* padding-left: px;
+            padding-right: 10px; */
+            padding: 10px;
+            text-align: center;
+            margin-left: 500px;
+            margin-right: 500px;
+            border-radius: 10px;
+        }
+
+        .btn {
+            width: 140px;
+            /* height:0px; */
+            border-radius: 15px;
+            background-color: rgb(0, 140, 255);
+            border: none;
+            padding: 10px;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .main2 h1 {
+            background: linear-gradient(to right, rgb(107, 4, 132), rgb(68, 46, 139));
+            color: white;
+            /* padding-left: px;
+            padding-right: 10px; */
+            padding: 10px;
+            text-align: center;
+            margin-left: 500px;
+            margin-right: 500px;
+            border-radius: 10px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 300px;
+        }
+
+        .buttons .btn1 {
+            width: 100px;
+            padding: 10px;
+            color: white;
+            background-color: black;
+            margin-right: 10px;
+            border-radius: 10px;
+        }
+
+        .buttons .btn2 {
+            width: 100px;
+            padding: 10px;
+            color: white;
+            background-color: black;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <h1>Login</h1>
+        <div class="form1">
+
+            <form action="">
+
+                <label for="">Username</label>
+                <br><br>
+                <input type="text">
+                <br><br>
+                <label for="">Password</label> <br><br>
+                <input type="pasword"> <br><br>
+                <label for="">Emain</label> <br><br>
+                <input type="email"> <br><br>
+                <button class="btn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="main2">
+        <h1>Signup</h1>
+        <div class="form1">
+
+            <form action="">
+
+                <label for="">Username</label>
+                <br><br>
+                <input type="text">
+                <br><br>
+                <label for="">Password</label> <br><br>
+                <input type="pasword"> <br><br>
+
+                <button class="btn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button class="btn1" onclick="toggleContent1()">Login</button>
+        <button class="btn2" onclick="toggleContent2()">SignUp</button>
+    </div>
+
+
+
+    <script>
+        function toggleContent1() {
+            let content1 = document.querySelector(".main")
+
+            if (content1.style.display === "none") {
+                content1.style.display = "block";   // show
+            } else {
+                content1.style.display = "none";    // hide
+            }
+        }
+
+        function toggleContent2() {
+            let content1 = document.querySelector(".main2")
+
+            if (content1.style.display === "none") {
+                content1.style.display = "block";   // show
+            } else {
+                content1.style.display = "none";    // hide
+            }
+        }
+    </script>
+</body>
+
+</html>

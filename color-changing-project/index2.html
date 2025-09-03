@@ -5,9 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        
+    </style>
 </head>
 
 <body>
+
+   
     <h1>DOM important Methods and Attributes</h1>
     <h1>new heading 1</h1>
     <h1>new heading 2</h1>
@@ -51,9 +56,13 @@
     <button onclick="change_ul_color()">Change-list-color</button><br>
     <br>
 
-    <button onclick="changeColorof()">ChangeColor</button>
+    <button onclick="startAll()">ChangeColor</button>
     <br><br>
     <button onclick="stopAll()">Stop</button>
+   
+
+
+    
 
 
     <script>
@@ -65,7 +74,6 @@
         var ul = document.querySelectorAll("ul");
 
         var p = document.querySelectorAll("p");
-        let intervalId = null;
 
         function getRandomColor() {
             var letter = "0123456789ABCDEF"
@@ -79,6 +87,26 @@
             return color;
         }
 
+        let globalInterval = null;
+
+        function changeAllColors() {
+            document.querySelectorAll("h1,h2,p,ul").forEach((el) => {
+                el.style.color = getRandomColor();
+            });
+        }
+
+        function  startAll(){
+            if (!globalInterval) {
+                globalInterval = setInterval(changeAllColors, 1000);
+            }
+        }
+
+        function stopAll() {
+            clearInterval(globalInterval);
+            globalInterval = null;
+        }
+
+        
 
 
         function changeColor1() {
@@ -111,18 +139,18 @@
 
         // master button
 
-        function changeColor() {
-            changeColor1();
-            changeColor2();
-            changeColor3();
-            changeColor4();
-        }
-        
-       
+        // function changeColor() {
+        //     changeColor1();
+        //     changeColor2();
+        //     changeColor3();
+        //     changeColor4();
+        // }
 
-        function changeColorof() {
-            setInterval(changeColor, 1000)
-        }
+
+
+        // function changeColorof() {
+        //     setInterval(changeColor, 1000)
+        // }
 
         function change_heading_color() {
             setInterval(changeColor1, 1000)
@@ -144,7 +172,7 @@
         }
 
         // stoping the buttons
-       
+
     </script>
 </body>
 
