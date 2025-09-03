@@ -829,10 +829,16 @@ footer {
 
 
 .form-sec {
-    margin-top: 60px;
+    margin-top: 30px;
     display: none;
+    
 }
-
+#form-heading{
+    color: rgb(59, 37, 128);
+    margin-bottom: 30px; 
+    margin-left: 40px;
+   
+}
 .form-sec .form-heading-main {
     text-align: center;
     color: rgb(59, 37, 128);

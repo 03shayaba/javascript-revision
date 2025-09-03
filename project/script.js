@@ -37,10 +37,15 @@ row3.addEventListener("click", function (dets) {
   img1.setAttribute("src", "images/change2.avif");
 });
 
+let cliked_btn = document.querySelectorAll(".btn-click");
+let hidden_content = document.querySelector(".form-sec");
+let hide_detail = document.querySelectorAll('.hide-content')
+cliked_btn.forEach((ele) =>{
+  ele.addEventListener("click", function () {
+    hide_detail.forEach(c => c.style.display = "none");
+    hidden_content.style.display = "block"
+});
 
 
-
-
-
-
+})
 

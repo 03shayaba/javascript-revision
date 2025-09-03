@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multiple Contents</title>
+  <style>
+    .content {
+      display: none; /* sab hidden by default */
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #aaa;
+      background: lightyellow;
+    }
+  </style>
+</head>
+<body>
+  <button class="btn" data-target="content1">Show Content 1</button>
+  <button class="btn" data-target="content2">Show Content 2</button>
+  <button class="btn" data-target="content3">Show Content 3</button>
+
+  <div id="content1" class="content">📘 This is Content 1</div>
+  <div id="content2" class="content">📗 This is Content 2</div>
+  <div id="content3" class="content">📕 This is Content 3</div>
+
+  <script>
+    let buttons = document.querySelectorAll(".btn");
+    let contents = document.querySelectorAll(".content");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", function () {
+        // Sabhi content hide kar do
+        contents.forEach(c => c.style.display = "none");
+
+        // Sirf target content show karo
+        let targetId = this.getAttribute("data-target");
+        document.getElementById(targetId).style.display = "block";
+      });
+    });
+  </script>
+</body>
+</html>
