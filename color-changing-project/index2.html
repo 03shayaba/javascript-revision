@@ -48,9 +48,12 @@
         <li>Milk</li>
         <li>Thumsup</li>
     </ul>
-    <button onclick="change_ul_color()">Change-list-color</button>
+    <button onclick="change_ul_color()">Change-list-color</button><br>
+    <br>
 
     <button onclick="changeColorof()">ChangeColor</button>
+    <br><br>
+    <button onclick="stopAll()">Stop</button>
 
 
     <script>
@@ -62,6 +65,7 @@
         var ul = document.querySelectorAll("ul");
 
         var p = document.querySelectorAll("p");
+        let intervalId = null;
 
         function getRandomColor() {
             var letter = "0123456789ABCDEF"
@@ -75,21 +79,7 @@
             return color;
         }
 
-        // function changeColor() {
-        //     var rc = getRandomColor()
-        //     // h1.style.color = rc;
-        //     p.style.color = getRandomColor();
-        //     h2.style.color = getRandomColor();
 
-        //     uls.forEach(function (ul) {
-        //     ul.style.color = getRandomColor();
-
-        //     });
-
-        //     h1.forEach((ele) => {
-        //         ele.style.color = getRandomColor();
-        //     })
-        // }
 
         function changeColor1() {
             h1.forEach((ele) => {
@@ -97,7 +87,7 @@
             })
 
         }
-         function changeColor2() {
+        function changeColor2() {
             h2.forEach((ele) => {
                 ele.style.color = getRandomColor();
             })
@@ -105,7 +95,7 @@
         }
 
 
-         function changeColor3() {
+        function changeColor3() {
             p.forEach((ele) => {
                 ele.style.color = getRandomColor();
             })
@@ -119,6 +109,16 @@
 
         }
 
+        // master button
+
+        function changeColor() {
+            changeColor1();
+            changeColor2();
+            changeColor3();
+            changeColor4();
+        }
+        
+       
 
         function changeColorof() {
             setInterval(changeColor, 1000)
@@ -133,10 +133,18 @@
         function change_para_color() {
             setInterval(changeColor3, 1000)
         }
-        function change_ul_color(){
+        function change_ul_color() {
             setInterval(changeColor4, 1000)
         }
 
+        // master intervals
+
+        function changeColorof() {
+            setInterval(changeColor, 1000)
+        }
+
+        // stoping the buttons
+       
     </script>
 </body>
 
