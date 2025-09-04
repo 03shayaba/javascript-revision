@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            background-color: rgb(103, 33, 122);
+            width: 400px;
+            height: 400px;
+            color: white;
+            padding:10px;
+        }
+        .box2{
+            width:400px;
+            height:400px;
+            background-color: cadetblue;
+        }
+        .box3{
+            width:300px;
+            height:500px;
+            background-color: blue;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>Lorem ipsum dolor sit amet. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum, ad earum? Ad
+            i magnam ad sint facilis voluptates veniam vel sunt iure commodi, qui necessitatibus.</h1>
+    </div>
+
+    <div class="box2">
+        <h1> Lorem ipsum dolor sit amet consectetur.</h1>
+    </div>
+
+
+    <script>
+
+        let box = document.querySelector(".box");
+        let box2 = document.querySelector('.box2');
+        box.classList.add("box2")
+        // box2.classList.remove('box2');
+        box.classList.toggle('box3');
+        box2.classList.toggle('box2');
+
+        document.write(box.classList.contains("box3"));
+    </script>
+</body>
+
+</html>
