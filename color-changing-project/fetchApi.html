@@ -6,11 +6,14 @@
         <title>Document</title>
 </head>
 <body>
+        <h1>hiii there</h1>
     <script>
         fetch("https://fakestoreapi.com/products/")
         .then(response=>response.json())
-        .then(data=>console.log(data))
-        .catch(error=>console.log("Error",error))  
+        .then(data=>{console.log(data)
+        document.writeln(JSON.stringify(data[0].title))
+        }
+        ).catch(error=>console.log("Error",error))  
 </script>    
 </body>
 </html>

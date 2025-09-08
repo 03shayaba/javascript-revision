@@ -13,14 +13,17 @@ document.getElementById("btn").addEventListener("click", makerequest);
 //   })
 // }
 
-// function makerequest(){
-//     console.log("Button Clicked")
-//     fetch('data.txt').then((res) =>{
-//         return res.text();
-//     }).then((data)=>{
-//         console.log(data)
-//     })
-// }
+function makerequest(){
+    console.log("Button Clicked")
+    fetch('data1.txt').then((res) =>{
+         console.log(res);
+        return res.text();
+       
+    }).then((data)=>{
+        console.log(data)
+    // document.writeln(data.name);
+    })
+}
 
 // error handling
 

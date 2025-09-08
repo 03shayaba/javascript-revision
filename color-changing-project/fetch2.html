@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch using promises</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+
+        .product,
+        .cart-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            display: inline-block;
+            width: 200px;
+            vertical-align: top;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: 150px;
+            object-fit: contain;
+        }
+
+        #cart {
+            margin-top: 30px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+        }
+    </style>
+    
+
+</head>
+
+<body>
+
+    <!-- <script>
+
+        
+       const data = 
+       fetch('https://fakestoreapi.com/products/')
+
+        .then(response => response.json())
+       .then(data => console.log(data))
+
+        
+        .catch(error => console.error("Error", error))
+
+        
+        
+
+        
+        
+
+    </script> -->
+
+    <h1>Fake Store</h1>
+    <div id="product-list"></div>
+
+    <h2>🛒 Cart</h2>
+    <div id="cart"></div>
+
+
+
+    <script>
+        const productList = document.getElementById('product-list');
+        const cartContainer = document.getElementById('cart');
+        const cart = [];
+
+        // Fetch products from API
+        fetch('https://fakestoreapi.com/products/')
+            .then(response => response.json())
+            .then(data => displayProducts(data))
+            .catch(error => console.error("Error:", error));
+
+        function displayProducts(products) {
+            products.forEach(product => {
+                const div = document.createElement('div');
+                div.className = 'product';
+                div.innerHTML = `
+          <img src="${product.image}" alt="${product.title}" />
+          <h3>${product.title}</h3>
+          <p>$${product.price.toFixed(2)}</p>
+          <button onclick='addToCart(${JSON.stringify(product)})'>Add to Cart</button>
+           <button onclick='BuyNow(${JSON.stringify(product)})'>Buy Now</button>
+        `;
+                productList.appendChild(div);
+            });
+        }
+
+        function addToCart(product) {
+            cart.push(product);
+            renderCart();
+        }
+
+        function renderCart() {
+            cartContainer.innerHTML = '';
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<p>Cart is empty.</p>';
+                return;
+            }
+
+            const grouped = {};
+            cart.forEach(item => {
+                grouped[item.id] = grouped[item.id] || { ...item, quantity: 0 };
+                grouped[item.id].quantity++;
+            });
+
+            for (let id in grouped) {
+                const item = grouped[id];
+                const div = document.createElement('div');
+                div.className = 'cart-item';
+                div.innerHTML = `
+          <h4>${item.title}</h4>
+          <p>Quantity: ${item.quantity}</p>
+          <p>Total: $${(item.price * item.quantity).toFixed(2)}</p>
+        `;
+                cartContainer.appendChild(div);
+            }
+        }
+    </script>
+
+</body>
+
+</html>

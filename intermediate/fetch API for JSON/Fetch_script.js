@@ -13,14 +13,15 @@ document.getElementById("btn").addEventListener("click", makerequest);
 //   })
 // }
 
-// function makerequest(){
-//     console.log("Button Clicked")
-//     fetch('data.json').then((res) =>{
-//         return res.json();
-//     }).then((data)=>{
-//         console.log(data)
-//     })
-// }
+function makerequest(){
+    console.log("Button Clicked")
+    fetch('data.json').then((res) =>{
+        return res.json();
+    }).then((data)=>{
+        console.log(data)
+     document.writeln(JSON.stringify(data[0].title)); 
+    })
+}
 
 // error handling
 
