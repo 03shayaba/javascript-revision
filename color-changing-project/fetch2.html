@@ -43,7 +43,7 @@
 
 <body>
 
-    <!-- <script>
+    <script>
 
         
        const data = 
@@ -61,7 +61,7 @@
         
         
 
-    </script> -->
+    </script>
 
     <h1>Fake Store</h1>
     <div id="product-list"></div>
@@ -90,6 +90,10 @@
           <img src="${product.image}" alt="${product.title}" />
           <h3>${product.title}</h3>
           <p>$${product.price.toFixed(2)}</p>
+          <h3>Rating: ${product.rating.rate}  </h3>
+          <h4>${product.rating.count} Customer Review </h4>
+          <h2> ${product.category}</h2>
+          <p> ${product.description} <p>
           <button onclick='addToCart(${JSON.stringify(product)})'>Add to Cart</button>
            <button onclick='BuyNow(${JSON.stringify(product)})'>Buy Now</button>
         `;
@@ -97,38 +101,41 @@
             });
         }
 
-        function addToCart(product) {
-            cart.push(product);
-            renderCart();
-        }
+        // function addToCart(product) {
+        //     cart.push(product);
+        //     renderCart();
+        // }
 
-        function renderCart() {
-            cartContainer.innerHTML = '';
-            if (cart.length === 0) {
-                cartContainer.innerHTML = '<p>Cart is empty.</p>';
-                return;
-            }
+        // function renderCart() {
+        //     cartContainer.innerHTML = '';
+        //     if (cart.length === 0) {
+        //         cartContainer.innerHTML = '<p>Cart is empty.</p>';
+        //         return;
+        //     }
 
-            const grouped = {};
-            cart.forEach(item => {
-                grouped[item.id] = grouped[item.id] || { ...item, quantity: 0 };
-                grouped[item.id].quantity++;
-            });
+        //     const grouped = {};
+        //     cart.forEach(item => {
+        //         grouped[item.id] = grouped[item.id] || { ...item, quantity: 0 };
+        //         grouped[item.id].quantity++;
+        //     });
 
-            for (let id in grouped) {
-                const item = grouped[id];
-                const div = document.createElement('div');
-                div.className = 'cart-item';
-                div.innerHTML = `
-          <h4>${item.title}</h4>
-          <p>Quantity: ${item.quantity}</p>
-          <p>Total: $${(item.price * item.quantity).toFixed(2)}</p>
-        `;
-                cartContainer.appendChild(div);
-            }
-        }
+        //     for (let id in grouped) {
+        //         const item = grouped[id];
+        //         const div = document.createElement('div');
+        //         div.className = 'cart-item';
+        //         div.innerHTML = `
+        //   <h4>${item.title}</h4>
+        //   <p>Quantity: ${item.quantity}</p>
+        //   <p>Total: $${(item.price * item.quantity).toFixed(2)}</p>
+        // `;
+        //         cartContainer.appendChild(div);
+        //     }
+        // }
+  
+
     </script>
 
 </body>
 
 </html>
+
