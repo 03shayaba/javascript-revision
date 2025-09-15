@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let pattern = "hello";
+        let flag = "i";
+
+        let regex1 = new  RegExp(pattern , flag);
+        let s = "Hello world" ;
+        console.log(regex1.test(s));
+
+
+        let regex2 = /hello/i;
+
+let s2 = "Hello world";
+
+console.log(regex2.test(s2));
+    </script>
+</body>
+</html>

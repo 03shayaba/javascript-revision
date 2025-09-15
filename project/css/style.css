@@ -827,7 +827,16 @@ footer {
     font-weight: lighter;
 }
 
-
+.left-input .sub-btn:hover{
+    color:white;
+    background-color: rgb(59, 37, 128);
+}
+.left-input a:hover{
+    color: rgb(59, 37, 128);
+}
+.left-input span{
+    color:rgb(67, 33, 167);
+}
 .form-sec {
     margin-top: 30px;
     display: none;
@@ -852,7 +861,7 @@ footer {
 
 .forms {
     display: flex;
-      padding-top: 70px;
+    padding-top: 70px;
 }
 
 .left-input {
@@ -869,9 +878,9 @@ footer {
 }
 
 .left-input input {
-    height: 20px;
-    padding-left: 200px;
     height: 30px;
+    padding-left: 10px;
+   width: 400px;
     border: 1px solid gray;
     border-radius: 10px;
     background-color: white;
@@ -1195,6 +1204,17 @@ footer {
 
     }
 
+    .left-input{
+        margin-left: 100px;
+        padding: 0px;
+    }
+
+    .right-box{
+        padding:20px;
+        margin-left:30px;
+        margin-bottom: 100px;
+    }
+
 
 }
 
@@ -1259,6 +1279,35 @@ footer {
         padding: 30px;
         text-align: left;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    .left-input{
+        margin: 30px;
+        padding: 0px;
+        /* width:70px; */
+    }
+    .left-input input{
+        width:270px;
+        margin-right: 70px;
+    }
+     .left-input  button{
+        /* padding-left: 100px; */
+        margin-left:20px;
+     }
+     .left-input h1{
+        font-size: 1.1em;
+       margin: 0px;
+       padding:5px;
+     }
+     .left-input h2{
+        width:320px;
+        font-size: 1em;
+       margin: 0px;
+       padding:5px;
+     }
+    .right-box{
+        padding:20px;
+        margin-left:0px;
+        margin-bottom: 100px;
     }
 
 
@@ -1480,6 +1529,60 @@ footer {
         padding-bottom: 10px;
     }
 
+    .form-sec .form-heading-main{
+        font-size: 1.7rem;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .form-sec .forms {
+    display: flex;        /* re-assert flex if needed */
+    flex-direction: column !important ;
+    align-items: stretch;
+    padding-top: 30px;    /* reduced top padding for small screens */
+  }
+
+  /* remove large left padding and let it use full width */
+  .left-input {
+    max-width: 412px;
+    width: 100%;
+      margin-left: 20px;
+      margin-right: 20px;
+    padding-left: 0;      /* IMPORTANT — overrides the 300px */
+    padding-right: 16px;
+    box-sizing: border-box;
+  }
+  .left-input input{
+            width: 0px;
+           margin-left: 20px;
+           margin-right: 20px;
+        
+  }
+
+  /* make inputs & button responsive */
+  .left-input input,
+  .left-input button {
+    width: 100%;
+   
+    margin-left: 0;       /* override any left margins */
+    display: block;
+  }
+  .left-input h1{
+    margin-left:35px ;
+  }
+  .left-input h2{
+    margin-left: 0px;
+    margin-right:20px ;
+    width:100%;
+  }
+  .right-box {
+    width: 100%;
+    max-width: 390px;
+   margin-left: 20px;
+   /* margin-right: 50px; */
+    padding: 16px;
+    margin-bottom: 100px;
+  }
+
 }
 
 @media (max-width:360px) {
@@ -1529,4 +1632,49 @@ footer {
     .left-content p {
         font-size: 1em;
     }
+   .form-sec .forms {
+    display: flex;        /* re-assert flex if needed */
+    flex-direction: column !important ;
+    align-items: stretch;
+    padding-top: 30px;    /* reduced top padding for small screens */
+  }
+
+  /* remove large left padding and let it use full width */
+  .left-input {
+    max-width: 350px;
+    width: 100%;
+    margin-left: 20;
+    padding-left: 0;      /* IMPORTANT — overrides the 300px */
+    padding-right: 16px;
+    box-sizing: border-box;
+  }
+  .left-input input{
+            width: 0px;
+        
+  }
+  .left-input h1{
+    margin-left:35px ;
+  }
+  .left-input h2{
+    margin-left: 0px;
+    margin-right:20px ;
+    width:100%;
+  }
+
+  /* make inputs & button responsive */
+  .left-input input,
+  .left-input button {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;       /* override any left margins */
+    display: block;
+  }
+  .right-box {
+    width: 100%;
+    max-width: 330px;
+   margin-left: 20px;
+   /* margin-right: 50px; */
+    padding: 16px;
+    margin-bottom: 100px;
+  }
 }
