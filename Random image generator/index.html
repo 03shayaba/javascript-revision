@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 40px;
+        }
+
+        #image-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Random Image generatir</h1>
+    <button onclick="getRandomImage()"> get Random Images</button>
+    <div id="image-container"></div>
+
+
+
+    <script>
+
+        const accessKey = 'z9DOqPLVHALHt-UnnVxAC21gAC3MhrdaRpoW844_gzg';
+
+        async function getRandomImage() {
+            const container = document.getElementById('image-container');
+            container.innerHTML = '';
+
+
+            try {
+                const response = await fetch(`https://api.unsplash.com/photos/random?client_id=${accessKey}&count=12`)
+                
+                const data = await response.json();
+
+                data.forEach(image => {
+                    const img = document.createElement('img');
+                    img.src = image.urls.regular;
+                    img.alt = image.alt_description || 'Random unsplash Image';
+                    container.appendChild(img);
+                });
+            } catch (error) {
+                console.log(error.message);
+            }
+        }
+
+        getRandomImage();
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .forms {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100vw;
+            height: 500px;
+        }
+
+        body {
+            background: linear-gradient(to right, #6282c7, #15137d);
+        }
+
+        .head h1{
+            font-size: 3rem;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: white;
+        }
+
+        input{
+            padding-left:10px;
+            text-align: center;
+            height:25px;
+            width:300px;
+            border-radius: 3px;
+            border: none;
+        }
+
+
+        button{
+            width:150px;
+            height:30px;
+            text-align: center;
+            background-color:rgb(16, 46, 242);
+            border:none;
+            border-radius: 10px;
+
+            color: white;
+            font-size: 1em;;
+            
+        }
+
+        #weatherResult{
+            color:white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="forms">
+        <div class="head">
+            <h1>Weather Application</h1>
+        </div>
+
+
+
+        <form action="">
+            <input type="text" id="cityInput" placeholder="Search whether">
+            <button id="getweatherBtn"> Get whether</button>
+        </form>
+
+        <div id="weatherResult"></div>
+
+
+    </div>
+
+
+
+    <script>
+        const apiKey = 'b57eddb6254701aa9c9076ec8eef2c3d';
+        async function getWeather(city) {
+            const weatherResult = document.getElementById('weatherResult');
+            weatherResult.textContent = 'Loading...';
+
+            try {
+                const response = await fetch(
+                    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
+                );
+                console.log(response)
+                if (!response.ok) {
+                    throw new Error('City not Found');
+                }
+
+                const data = await response.json();
+                // console.log(data);
+
+
+                weatherResult.innerHTML = `
+                <h2>weather in ${data.name}</h2>
+                <p>Temprature: ${data.main.temp}℃</p>
+                <p>Humidity: ${data.main.humidity}%</p>
+                <p>Conditions : ${data.weather[0].description} </p>`;
+            } catch (error) {
+                weatherResult.textContent = 'Error:' + error.message;
+            }
+        }
+
+        document.getElementById('getweatherBtn').addEventListener('click', (e) => {
+            e.preventDefault();
+            const city = document.getElementById('cityInput').value.trim();
+            if (city) {
+                getWeather(city);
+            }
+        });
+
+
+
+    </script>
+</body>
+
+</html>

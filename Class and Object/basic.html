@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p id="display"></p>
+
+    <p id="show"></p>
+    
+    <script>
+        class Car {
+            constructor() {
+                this.name= "Audi"
+                this.model = "A4"
+                this.year = 2019
+            }
+
+            details() {
+                return this.name + " " + " " + this.model + " " + this.year
+            }
+
+        }
+
+        const myCar = new Car()
+
+         const myCar1 = new Car()
+
+        document.getElementById('display').innerHTML = 
+        "My car Name is : " + myCar.name + "<br>" +
+        "My car model name is : " + myCar.model + "<br>" +
+        "Manufactured Year : " + myCar.year + "<br>" +
+        "details of the car :" + myCar.details();
+
+         document.getElementById('show').innerHTML = 
+        "My car Name is : " + myCar1.name + "<br>" +
+        "My car model name is : " + myCar1.model + "<br>" +
+        "Manufactured Year : " + myCar1.year + "<br>" +
+        "details of the car :" + myCar1.details();
+
+    </script>
+
+</body>
+</html>
