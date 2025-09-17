@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <style>
         .forms {
             display: flex;
@@ -20,42 +20,48 @@
             background: linear-gradient(to right, #6282c7, #15137d);
         }
 
-        .head h1{
+        .head h1 {
             font-size: 3rem;
             font-family: Georgia, 'Times New Roman', Times, serif;
             color: white;
         }
 
-        input{
-            padding-left:10px;
+        input {
+            padding-left: 10px;
             text-align: center;
-            height:25px;
-            width:300px;
+            height: 25px;
+            width: 300px;
             border-radius: 3px;
             border: none;
         }
 
 
-        button{
-            width:150px;
-            height:30px;
+        button {
+            width: 150px;
+            height: 30px;
             text-align: center;
-            background-color:rgb(16, 46, 242);
-            border:none;
+            background-color: rgb(16, 46, 242);
+            border: none;
             border-radius: 10px;
 
             color: white;
-            font-size: 1em;;
-            
+            font-size: 1em;
+            ;
+
         }
 
-        #weatherResult{
-            color:white;
+        #weatherResult , #history{
+            color: white;
         }
+
+        
     </style>
 </head>
 
 <body>
+
+   
+     <div id="history" class="search-history"></div>
     <div class="forms">
         <div class="head">
             <h1>Weather Application</h1>
@@ -69,6 +75,13 @@
         </form>
 
         <div id="weatherResult"></div>
+
+
+       <!-- <div id="history" class="search-history"></div> -->
+            
+        </div>
+
+        
 
 
     </div>
@@ -104,16 +117,51 @@
             }
         }
 
-        document.getElementById('getweatherBtn').addEventListener('click', (e) => {
+        // document.getElementById('getweatherBtn').addEventListener('click', (e) => {
+        //     e.preventDefault();
+        //     const city = document.getElementById('cityInput').value.trim();
+        //     if (city) {
+        //         getWeather(city);
+        //     }
+        // });
+
+
+
+        // Save history in localStorage
+        function saveHistory(city) {
+            let history = JSON.parse(localStorage.getItem("history")) || [];
+            if (!history.includes(city)) {   // avoid duplicate
+                history.unshift(city);         // latest search on top
+                if (history.length > 5) history.pop(); // max 5 items
+                localStorage.setItem("history", JSON.stringify(history));
+            }
+        }
+
+        // Show history
+        function showHistory() {
+            let history = JSON.parse(localStorage.getItem("history")) || [];
+            const historyDiv = document.getElementById("history");
+            historyDiv.innerHTML = history.map(c => `<p>${c}</p>`).join("");
+        }
+
+        // Example usage
+        document.getElementById("getweatherBtn").addEventListener("click", (e) => {
             e.preventDefault();
-            const city = document.getElementById('cityInput').value.trim();
+            const city = document.getElementById("cityInput").value.trim();
             if (city) {
                 getWeather(city);
+                saveHistory(city);
+                 showHistory();
+                
             }
         });
 
-
-
+        // Show history on page load
+//         document.getElementById("getHistoryBtn").addEventListener("click", (e) => {
+//   e.preventDefault();
+//   showHistory();
+// });
+//  window.onload = showHistory;
     </script>
 </body>
 
